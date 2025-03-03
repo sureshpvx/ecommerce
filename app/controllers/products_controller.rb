@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
-  before_action :set_user, only: [:create] # Ensure user is set before creating a product
+  before_action :set_user, only: [ :create ] # Ensure user is set before creating a product
 
   # GET /products or /products.json
   def index
