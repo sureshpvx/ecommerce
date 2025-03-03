@@ -1,0 +1,21 @@
+<div class="bg-white rounded-md shadow-sm p-3">
+  <% if product.images.attached? %>
+    <%= image_tag product.images.first, class: "w-full h-120 object-cover rounded-t-md" %>
+  <% end %>
+
+  <h3 class="text-sm font-semibold mb-1 truncate">
+    <a href="<%= product_path(product) %>" class="hover:underline">
+      <%= link_to product.name, product_path(product), data: { turbo_frame: "_top" }, class: "hover:underline" %>
+    </a>
+  </h3>
+
+  <p class="text-sm font-semibold text-gray-800">
+    <% if product.price.present? %>
+      ₹<%= product.price %>
+    <% else %>
+      Price: Contact Us
+    <% end %>
+  </p>
+  <%= button_to "Add to Cart", cart_items_path(product_id: product.id), method: :post, data: { turbo: false }, class: "bg-blue-500 text-white px-4 py-2" %>
+
+</div>
