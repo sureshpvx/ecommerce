@@ -11,8 +11,7 @@
   <% if Current.user.present? %>
     <p> Welcome <%= Current.user.email_address%>!</p>
   <% end %>
-  <%= render "layouts/navbar" %>
-  <h1 class="font-bold text-4xl text-center">The Best Products</h1>
+  <h1 class="font-bold text-white text-4xl text-center">The Best Products</h1>
   <div class="container mx-auto mt-8 px-4">
     <div id="products" class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
       <% if @products.any? %>
@@ -24,5 +23,4 @@
       <% end %>
     </div>
   </div>
-  <%= render "layouts/footer" %>
 </div>

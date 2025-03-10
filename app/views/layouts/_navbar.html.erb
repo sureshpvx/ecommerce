@@ -1,49 +1,30 @@
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav class="bg-white shadow-md dark:bg-gray-800">
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between p-4">
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="/logo.svg" class="h-8" alt="Your Logo" />
-      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KANIRA</span>
+      <span class="text-2xl font-semibold dark:text-white">KANIRA</span>
     </a>
     <div data-controller="dropdown" class="relative">
       <% if Current.user.present? %>
-        <button
-          data-action="click->dropdown#toggle"
-          class="flex items-center text-sm rounded-md focus:outline-none px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 transition duration-200 w-full"
-        >
+        <button data-action="click->dropdown#toggle" class="flex items-center text-sm px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-md transition">
           <span class="text-gray-900 dark:text-white font-medium"><%= Current.user.email_address %></span>
-          <svg class="w-5 h-5 text-gray-500 ml-2 transition-transform duration-200" data-dropdown-target="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+          <svg class="w-5 h-5 ml-2 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l5 5 5-5"/>
           </svg>
         </button>
-        <div
-          data-dropdown-target="menu"
-          class="hidden absolute left-0 mt-1 bg-white dark:bg-gray-900 rounded-md shadow-lg transition-all duration-200 opacity-0 scale-95 w-full"
-        >
-          <ul class="py-2 text-sm">
-            <li>
-              <a href="#" class="block w-full text-left px-4 py-2 text-white-700 hover:text-black !text-black hover:bg-gray-100 dark:hover:text-black dark:hover:bg-gray-800">
-                Account
-              </a>
-            </li>
-            <li>
-              <a href="#" class="block w-full text-left px-4 py-2 text-gray-700 hover:text-black !text-black hover:bg-gray-100 dark:hover:text-black dark:hover:bg-gray-800">
-                Settings
-              </a>
-            </li>
-            <li>
-              <a href="#" class="block w-full text-left px-4 py-2 text-gray-700 hover:text-black !text-black hover:bg-gray-100 dark:hover:text-black dark:hover:bg-gray-800">
-                Help
-              </a>
-            </li>
-            <li>
-              <%= button_to "Logout", session_path, method: :delete, class: "block w-full text-left px-4 py-2 text-red-600 hover:text-red-700 hover:bg-gray-100 dark:hover:bg-gray-800" %>
-            </li>
+
+        <div data-dropdown-target="menu" class="hidden opacity-0 absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg transition-all transform scale-95">
+          <ul class="py-2 text-gray-900 dark:text-white">
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Account</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Help</a></li>
+            <li><%= button_to "Logout", session_path, method: :delete, class: "block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 dark:hover:bg-gray-700" %></li>
           </ul>
         </div>
       <% else %>
-        <a href="/login" class="text-gray-900 dark:text-white px-4 py-2 hover:underline">Login</a>
-        <a href="/signup" class="text-gray-900 dark:text-white px-4 py-2 hover:underline">Signup</a>
+        <a href="/login" class="px-4 py-2 hover:underline">Login</a>
+        <a href="/signup" class="px-4 py-2 hover:underline">Signup</a>
       <% end %>
-    </div>
+     </div>
   </div>
 </nav>

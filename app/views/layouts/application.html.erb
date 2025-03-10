@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title><%= content_for(:title) || "Ecommerce" %></title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <%= csrf_meta_tags %>
@@ -12,16 +12,23 @@
 
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon.png">
-
+  
   <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
 </head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-black">
+  <header class="w-full shadow-md bg-white dark:bg-gray-800">
+    <%= render "layouts/navbar" %>
+  </header>
 
-<body class="bg-gradient-to-l from-indigo-400 to-transparent">
-<main class="container mx-auto mt-20 px-5 flex">
-  <section class="flex-1">
-    <%= yield %>
-  </section>
-</main>
+  <main class="container mx-auto mt-16 px-5 flex flex-col min-h-screen">
+    <section class="flex-1 py-6">
+      <%= yield %>
+    </section>
+  </main>
+
+  <footer>
+    <%= render "layouts/footer" %>
+  </footer>
 </body>
 </html>
